@@ -12,18 +12,23 @@
         }
 
         :root {
-            --bg-dark: #0a0a0a;
-            --bg-card: #1a1a1a;
-            --text-primary: #ffffff;
-            --text-secondary: #a0a0a0;
-            --accent: #00d4ff;
-            --accent-hover: #00b8e6;
-            --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --bg-primary: #f0f9ff;
+            --bg-secondary: #ffffff;
+            --bg-card: #ffffff;
+            --text-primary: #1e293b;
+            --text-secondary: #475569;
+            --accent-blue: #0ea5e9;
+            --accent-green: #10b981;
+            --accent-purple: #8b5cf6;
+            --accent-pink: #ec4899;
+            --border-color: #e2e8f0;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: var(--bg-dark);
+            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 50%, #dbeafe 100%);
             color: var(--text-primary);
             line-height: 1.6;
             overflow-x: hidden;
@@ -34,29 +39,46 @@
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(10, 10, 10, 0.95);
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
             padding: 1rem 0;
             z-index: 1000;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         }
 
         nav ul {
             display: flex;
             justify-content: center;
-            gap: 2rem;
+            gap: 3rem;
             list-style: none;
         }
 
         nav a {
             color: var(--text-secondary);
             text-decoration: none;
-            transition: color 0.3s;
-            font-weight: 500;
+            transition: all 0.3s;
+            font-weight: 600;
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: var(--accent-blue);
+            transition: width 0.3s;
+            border-radius: 2px;
         }
 
         nav a:hover {
-            color: var(--accent);
+            color: var(--accent-blue);
+        }
+
+        nav a:hover::after {
+            width: 100%;
         }
 
         /* Hero Section */
@@ -71,146 +93,238 @@
             overflow: hidden;
         }
 
-        .hero::before {
-            content: '';
+        .floating-shapes {
             position: absolute;
-            width: 500px;
-            height: 500px;
-            background: var(--gradient);
-            border-radius: 50%;
-            filter: blur(120px);
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 0;
+        }
+
+        .shape {
+            position: absolute;
             opacity: 0.3;
-            animation: float 6s ease-in-out infinite;
+            animation: float 20s ease-in-out infinite;
+        }
+
+        .shape1 {
+            width: 300px;
+            height: 300px;
+            background: linear-gradient(135deg, #0ea5e9 0%, #06b6d4 100%);
+            border-radius: 50%;
+            top: 10%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .shape2 {
+            width: 200px;
+            height: 200px;
+            background: linear-gradient(135deg, #10b981 0%, #34d399 100%);
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            top: 60%;
+            right: 15%;
+            animation-delay: 2s;
+        }
+
+        .shape3 {
+            width: 150px;
+            height: 150px;
+            background: linear-gradient(135deg, #8b5cf6 0%, #a78bfa 100%);
+            border-radius: 50%;
+            bottom: 20%;
+            left: 20%;
+            animation-delay: 4s;
         }
 
         @keyframes float {
-            0%, 100% { transform: translate(0, 0); }
-            50% { transform: translate(50px, 50px); }
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            25% { transform: translate(30px, -30px) rotate(90deg); }
+            50% { transform: translate(-20px, 20px) rotate(180deg); }
+            75% { transform: translate(20px, 30px) rotate(270deg); }
         }
 
         .hero-content {
             position: relative;
             z-index: 1;
+            max-width: 900px;
         }
 
         .hero h1 {
-            font-size: 3.5rem;
+            font-size: 4rem;
             margin-bottom: 1rem;
-            background: var(--gradient);
+            font-weight: 800;
+            background: linear-gradient(135deg, #0ea5e9 0%, #10b981 50%, #8b5cf6 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            animation: fadeInUp 1s ease-out;
         }
 
         .hero .subtitle {
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             color: var(--text-secondary);
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
+
+        .hero .description {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto 2.5rem;
+            animation: fadeInUp 1s ease-out 0.4s both;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .cta-buttons {
             display: flex;
-            gap: 1rem;
+            gap: 1.5rem;
             justify-content: center;
             flex-wrap: wrap;
+            animation: fadeInUp 1s ease-out 0.6s both;
         }
 
         .btn {
-            padding: 0.8rem 2rem;
+            padding: 1rem 2.5rem;
             border: none;
-            border-radius: 8px;
-            font-size: 1rem;
+            border-radius: 50px;
+            font-size: 1.1rem;
             cursor: pointer;
             transition: all 0.3s;
             text-decoration: none;
             display: inline-block;
-        }
-
-        .btn-primary {
-            background: var(--accent);
-            color: var(--bg-dark);
             font-weight: 600;
         }
 
+        .btn-primary {
+            background: linear-gradient(135deg, #0ea5e9 0%, #06b6d4 100%);
+            color: white;
+            box-shadow: 0 4px 15px rgba(14, 165, 233, 0.3);
+        }
+
         .btn-primary:hover {
-            background: var(--accent-hover);
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.3);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(14, 165, 233, 0.4);
         }
 
         .btn-secondary {
-            background: transparent;
-            color: var(--text-primary);
-            border: 2px solid var(--accent);
+            background: white;
+            color: var(--accent-blue);
+            border: 2px solid var(--accent-blue);
         }
 
         .btn-secondary:hover {
-            background: var(--accent);
-            color: var(--bg-dark);
+            background: var(--accent-blue);
+            color: white;
+            transform: translateY(-3px);
         }
 
         /* Section Styles */
         section {
-            padding: 5rem 2rem;
+            padding: 6rem 2rem;
             max-width: 1200px;
             margin: 0 auto;
         }
 
         .section-title {
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
+            font-size: 3rem;
+            margin-bottom: 1rem;
             text-align: center;
-            position: relative;
+            font-weight: 800;
+            background: linear-gradient(135deg, #0ea5e9 0%, #10b981 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 4px;
-            background: var(--gradient);
-            border-radius: 2px;
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-secondary);
+            margin-bottom: 4rem;
+            font-size: 1.2rem;
         }
 
         /* About Section */
         .about-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: center;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .about-text {
+            background: white;
+            padding: 3rem;
+            border-radius: 24px;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--border-color);
         }
 
         .about-text p {
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
             color: var(--text-secondary);
+            font-size: 1.05rem;
+            line-height: 1.8;
+        }
+
+        .about-text strong {
+            color: var(--text-primary);
         }
 
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1rem;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
         }
 
         .skill-category {
-            background: var(--bg-card);
-            padding: 1.5rem;
-            border-radius: 12px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            border-left: 4px solid var(--accent-blue);
+            transition: all 0.3s;
+        }
+
+        .skill-category:nth-child(2) {
+            border-left-color: var(--accent-green);
+        }
+
+        .skill-category:nth-child(3) {
+            border-left-color: var(--accent-purple);
+        }
+
+        .skill-category:nth-child(4) {
+            border-left-color: var(--accent-pink);
+        }
+
+        .skill-category:hover {
+            transform: translateX(10px);
+            box-shadow: var(--shadow-lg);
         }
 
         .skill-category h3 {
-            color: var(--accent);
+            color: var(--text-primary);
             margin-bottom: 0.8rem;
-            font-size: 1.1rem;
+            font-size: 1.3rem;
+            font-weight: 700;
         }
 
         .skill-category p {
             color: var(--text-secondary);
-            font-size: 0.9rem;
-            line-height: 1.6;
+            line-height: 1.8;
         }
 
         /* Projects Grid */
@@ -221,10 +335,11 @@
         }
 
         .project-card {
-            background: var(--bg-card);
-            border-radius: 16px;
-            padding: 2rem;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: white;
+            border-radius: 24px;
+            padding: 2.5rem;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
             transition: all 0.3s;
             position: relative;
             overflow: hidden;
@@ -236,15 +351,16 @@
             top: 0;
             left: 0;
             width: 100%;
-            height: 4px;
-            background: var(--gradient);
+            height: 6px;
+            background: linear-gradient(90deg, #0ea5e9 0%, #10b981 50%, #8b5cf6 100%);
             transform: scaleX(0);
+            transform-origin: left;
             transition: transform 0.3s;
         }
 
         .project-card:hover {
-            transform: translateY(-8px);
-            border-color: var(--accent);
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
         }
 
         .project-card:hover::before {
@@ -253,67 +369,112 @@
 
         .project-card h3 {
             margin-bottom: 1rem;
-            color: var(--accent);
+            color: var(--text-primary);
+            font-size: 1.4rem;
+            font-weight: 700;
         }
 
         .project-card p {
             color: var(--text-secondary);
             margin-bottom: 1.5rem;
+            line-height: 1.8;
         }
 
         .project-tags {
             display: flex;
             flex-wrap: wrap;
-            gap: 0.5rem;
+            gap: 0.8rem;
         }
 
         .tag {
-            background: rgba(0, 212, 255, 0.1);
-            color: var(--accent);
-            padding: 0.3rem 0.8rem;
+            background: linear-gradient(135deg, #e0f2fe 0%, #dbeafe 100%);
+            color: #0369a1;
+            padding: 0.5rem 1rem;
             border-radius: 20px;
-            font-size: 0.85rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+            border: 1px solid #bae6fd;
         }
 
         /* Contact Section */
         .contact-content {
             text-align: center;
-            max-width: 600px;
+            max-width: 700px;
             margin: 0 auto;
+            background: white;
+            padding: 4rem;
+            border-radius: 24px;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .contact-content p {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-bottom: 3rem;
         }
 
         .contact-links {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-top: 2rem;
-            flex-wrap: wrap;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
         }
 
         .contact-link {
             display: flex;
             align-items: center;
-            gap: 0.5rem;
-            color: var(--text-primary);
+            justify-content: center;
+            gap: 0.8rem;
+            color: white;
             text-decoration: none;
-            padding: 1rem 1.5rem;
-            background: var(--bg-card);
-            border-radius: 12px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 1.2rem 2rem;
+            border-radius: 16px;
             transition: all 0.3s;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .contact-link:nth-child(1) {
+            background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+        }
+
+        .contact-link:nth-child(2) {
+            background: linear-gradient(135deg, #0077b5 0%, #00a0dc 100%);
+        }
+
+        .contact-link:nth-child(3) {
+            background: linear-gradient(135deg, #0ea5e9 0%, #06b6d4 100%);
+        }
+
+        .contact-link:nth-child(4) {
+            background: linear-gradient(135deg, #20beff 0%, #4fd1ff 100%);
         }
 
         .contact-link:hover {
-            border-color: var(--accent);
-            transform: translateY(-4px);
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .contact-link::before {
+            content: '→';
+            font-size: 1.5rem;
+            transition: transform 0.3s;
+        }
+
+        .contact-link:hover::before {
+            transform: translateX(5px);
         }
 
         /* Footer */
         footer {
             text-align: center;
-            padding: 2rem;
+            padding: 3rem 2rem;
             color: var(--text-secondary);
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            background: white;
+            margin-top: 4rem;
+        }
+
+        footer p {
+            font-size: 1.1rem;
         }
 
         /* Responsive */
@@ -322,11 +483,11 @@
                 font-size: 2.5rem;
             }
 
-            .about-content {
-                grid-template-columns: 1fr;
+            .hero .subtitle {
+                font-size: 1.3rem;
             }
 
-            .skills-grid {
+            .about-content {
                 grid-template-columns: 1fr;
             }
 
@@ -334,9 +495,17 @@
                 grid-template-columns: 1fr;
             }
 
+            .contact-links {
+                grid-template-columns: 1fr;
+            }
+
             nav ul {
-                gap: 1rem;
+                gap: 1.5rem;
                 font-size: 0.9rem;
+            }
+
+            section {
+                padding: 4rem 1.5rem;
             }
         }
     </style>
@@ -354,15 +523,20 @@
 
     <!-- Hero Section -->
     <section id="home" class="hero">
+        <div class="floating-shapes">
+            <div class="shape shape1"></div>
+            <div class="shape shape2"></div>
+            <div class="shape shape3"></div>
+        </div>
         <div class="hero-content">
             <h1>Mallemoina Gurudarpan</h1>
             <p class="subtitle">Machine Learning & Computer Vision Engineer</p>
-            <p style="color: var(--text-secondary); max-width: 600px; margin: 0 auto 2rem;">
-                Building intelligent vision-based systems and exploring hybrid deep learning models
+            <p class="description">
+                Building intelligent vision-based systems and exploring hybrid deep learning models at the intersection of research and real-world applications
             </p>
             <div class="cta-buttons">
-                <a href="#projects" class="btn btn-primary">View Projects</a>
-                <a href="#contact" class="btn btn-secondary">Get in Touch</a>
+                <a href="#projects" class="btn btn-primary">View My Work</a>
+                <a href="#contact" class="btn btn-secondary">Let's Connect</a>
             </div>
         </div>
     </section>
@@ -370,37 +544,38 @@
     <!-- About Section -->
     <section id="about">
         <h2 class="section-title">About Me</h2>
+        <p class="section-subtitle">Passionate about AI, Computer Vision, and Innovation</p>
         <div class="about-content">
             <div class="about-text">
                 <p>
-                    I'm a Machine Learning and Computer Vision Engineer at <strong>Masterworks</strong>, passionate about developing intelligent vision-based systems and exploring cutting-edge deep learning architectures.
+                    👋 Hi! I'm a Machine Learning and Computer Vision Engineer at <strong>Masterworks</strong>, where I develop intelligent vision-based systems and explore cutting-edge deep learning architectures.
                 </p>
                 <p>
-                    With expertise spanning from real-time object detection to generative modeling, I bridge the gap between research and production-ready solutions. My work focuses on Edge AI, MLOps, and innovative applications of Vision-Language Models.
+                    🚀 My expertise spans from real-time object detection to generative modeling, bridging research and production-ready solutions. I specialize in Edge AI, MLOps, and Vision-Language Models.
                 </p>
                 <p>
-                    <strong>Education:</strong> B.Tech in Electronics and Communication Engineering from IIIT RGUKT RK Valley (2024)
+                    🎓 <strong>Education:</strong> B.Tech in Electronics and Communication Engineering from IIIT RGUKT RK Valley (2024)
                 </p>
                 <p>
-                    <strong>Location:</strong> Hyderabad, India
+                    📍 <strong>Location:</strong> Hyderabad, India
                 </p>
             </div>
             <div class="skills-grid">
                 <div class="skill-category">
-                    <h3>Programming</h3>
+                    <h3>💻 Programming Languages</h3>
                     <p>Python, C, C++, Rust</p>
                 </div>
                 <div class="skill-category">
-                    <h3>Frameworks</h3>
-                    <p>PyTorch, TensorFlow, YOLO, DeepStream SDK, NVIDIA TAO</p>
+                    <h3>🧠 ML/AI Frameworks</h3>
+                    <p>PyTorch, TensorFlow, YOLO, DeepStream SDK, NVIDIA TAO Toolkit</p>
                 </div>
                 <div class="skill-category">
-                    <h3>MLOps Tools</h3>
+                    <h3>⚙️ MLOps & Tools</h3>
                     <p>Docker, Kubernetes, MLflow, Weights & Biases, Dask</p>
                 </div>
                 <div class="skill-category">
-                    <h3>Specializations</h3>
-                    <p>Geometric Deep Learning, 3D CV, VLMs, Synthetic Data</p>
+                    <h3>🎯 Specializations</h3>
+                    <p>Geometric Deep Learning, 3D Computer Vision, VLMs, Synthetic Data Generation</p>
                 </div>
             </div>
         </div>
@@ -409,9 +584,10 @@
     <!-- Projects Section -->
     <section id="projects">
         <h2 class="section-title">Featured Projects</h2>
+        <p class="section-subtitle">Innovative solutions at the intersection of AI and Computer Vision</p>
         <div class="projects-grid">
             <div class="project-card">
-                <h3>Real-Time Object Detection with DeepStream</h3>
+                <h3>🎥 Real-Time Object Detection with DeepStream</h3>
                 <p>Integrated multiple RTSP streams for real-time object detection and analytics. Optimized NVIDIA DeepStream pipelines for efficient multi-camera inference.</p>
                 <div class="project-tags">
                     <span class="tag">DeepStream</span>
@@ -422,7 +598,7 @@
             </div>
 
             <div class="project-card">
-                <h3>License Plate Recognition System</h3>
+                <h3>🚗 License Plate Recognition System</h3>
                 <p>Built end-to-end detection and OCR pipeline using NVIDIA TAO Toolkit. Automated real-time number plate extraction from video streams.</p>
                 <div class="project-tags">
                     <span class="tag">TAO Toolkit</span>
@@ -432,7 +608,7 @@
             </div>
 
             <div class="project-card">
-                <h3>Vision-Language Model Auto Annotation</h3>
+                <h3>🤖 Vision-Language Model Auto Annotation</h3>
                 <p>Leveraged Grounding DINO for automatic annotation generation on unlabelled datasets, significantly reducing manual labeling effort.</p>
                 <div class="project-tags">
                     <span class="tag">VLM</span>
@@ -442,7 +618,7 @@
             </div>
 
             <div class="project-card">
-                <h3>Synthetic Data Generation Pipeline</h3>
+                <h3>🎨 Synthetic Data Generation Pipeline</h3>
                 <p>Created synthetic datasets for license plate images and tabular time-series data. Improved model robustness through domain randomization.</p>
                 <div class="project-tags">
                     <span class="tag">Synthetic Data</span>
@@ -452,7 +628,7 @@
             </div>
 
             <div class="project-card">
-                <h3>Hybrid Generative Modeling (GAN + EBM)</h3>
+                <h3>⚡ Hybrid Generative Modeling (GAN + EBM)</h3>
                 <p>Experimented with combining Generative Adversarial Networks and Energy-Based Models for controlled image generation.</p>
                 <div class="project-tags">
                     <span class="tag">GANs</span>
@@ -462,7 +638,7 @@
             </div>
 
             <div class="project-card">
-                <h3>Edge-based Action Detection</h3>
+                <h3>📱 Edge-based Action Detection</h3>
                 <p>Deployed lightweight VLMs on edge devices for real-time action detection using RTSP video streams.</p>
                 <div class="project-tags">
                     <span class="tag">Edge AI</span>
@@ -472,7 +648,7 @@
             </div>
 
             <div class="project-card">
-                <h3>Predictive Modeling for Operations</h3>
+                <h3>📊 Predictive Modeling for Operations</h3>
                 <p>Developed hybrid statistical and deep learning models to predict off-block time probability and vehicle inspection end times.</p>
                 <div class="project-tags">
                     <span class="tag">Time Series</span>
@@ -482,7 +658,7 @@
             </div>
 
             <div class="project-card">
-                <h3>Eye Spect Lens Defect Detection</h3>
+                <h3>🔍 Eye Spect Lens Defect Detection</h3>
                 <p>Built a defect detection pipeline using CNN-based vision models for high-precision quality inspection.</p>
                 <div class="project-tags">
                     <span class="tag">Quality Control</span>
@@ -495,10 +671,11 @@
 
     <!-- Contact Section -->
     <section id="contact">
-        <h2 class="section-title">Get In Touch</h2>
+        <h2 class="section-title">Let's Connect</h2>
+        <p class="section-subtitle">Open to discussing ML research, computer vision projects, or collaboration opportunities</p>
         <div class="contact-content">
-            <p style="color: var(--text-secondary); margin-bottom: 2rem;">
-                I'm always interested in discussing ML research, computer vision projects, or collaboration opportunities.
+            <p>
+                Feel free to reach out for collaborations, research discussions, or just to say hi! I'm always excited to connect with fellow AI enthusiasts.
             </p>
             <div class="contact-links">
                 <a href="https://github.com/Guru-180188" class="contact-link" target="_blank">
@@ -519,7 +696,7 @@
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2024 Mallemoina Gurudarpan. Built with passion for ML and CV.</p>
+        <p>© 2024 Mallemoina Gurudarpan | Built with passion for Machine Learning & Computer Vision 🚀</p>
     </footer>
 
     <script>
@@ -545,7 +722,6 @@
             let current = '';
             sections.forEach(section => {
                 const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
                 if (pageYOffset >= sectionTop - 100) {
                     current = section.getAttribute('id');
                 }
@@ -554,9 +730,31 @@
             navLinks.forEach(link => {
                 link.style.color = 'var(--text-secondary)';
                 if (link.getAttribute('href').slice(1) === current) {
-                    link.style.color = 'var(--accent)';
+                    link.style.color = 'var(--accent-blue)';
                 }
             });
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.project-card, .skill-category').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s ease-out';
+            observer.observe(el);
         });
     </script>
 </body>
