@@ -24,13 +24,11 @@
             --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
             --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
         }
-
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
         body {
             font-family: 'Inter', sans-serif;
             background: var(--bg-primary);
@@ -38,7 +36,6 @@
             line-height: 1.6;
             overflow-x: hidden;
         }
-
         /* Navigation */
         nav {
             position: fixed;
@@ -51,14 +48,12 @@
             border-bottom: 1px solid var(--border-color);
             box-shadow: var(--shadow-sm);
         }
-
         nav ul {
             display: flex;
             justify-content: center;
             gap: 3rem;
             list-style: none;
         }
-
         nav a {
             color: var(--text-secondary);
             text-decoration: none;
@@ -67,7 +62,6 @@
             position: relative;
             padding: 0.5rem 0;
         }
-
         nav a::after {
             content: '';
             position: absolute;
@@ -79,17 +73,14 @@
             transition: all 0.3s ease;
             transform: translateX(-50%);
         }
-
         nav a:hover,
         nav a.active {
             color: var(--accent-blue);
         }
-
         nav a:hover::after,
         nav a.active::after {
             width: 100%;
         }
-
         /* Hero Section */
         .hero {
             min-height: 100vh;
@@ -101,12 +92,10 @@
             position: relative;
             background: var(--bg-secondary);
         }
-
         .hero-content {
             max-width: 800px;
             z-index: 2;
         }
-
         .hero h1 {
             font-size: 5rem;
             font-weight: 800;
@@ -114,7 +103,6 @@
             color: var(--accent-blue);
             animation: fadeInUp 1s ease-out;
         }
-
         .hero .subtitle {
             font-size: 1.5rem;
             color: var(--text-secondary);
@@ -122,14 +110,12 @@
             font-weight: 400;
             animation: fadeInUp 1s ease-out 0.2s both;
         }
-
         .hero .description {
             font-size: 1.1rem;
             color: var(--text-secondary);
             margin-bottom: 3rem;
             animation: fadeInUp 1s ease-out 0.4s both;
         }
-
         .cta-buttons {
             display: flex;
             gap: 1.5rem;
@@ -137,7 +123,6 @@
             flex-wrap: wrap;
             animation: fadeInUp 1s ease-out 0.6s both;
         }
-
         .btn {
             padding: 1rem 2.5rem;
             border: none;
@@ -153,7 +138,6 @@
             position: relative;
             overflow: hidden;
         }
-
         .btn::before {
             content: '';
             position: absolute;
@@ -164,34 +148,28 @@
             background: rgba(255, 255, 255, 0.2);
             transition: left 0.5s;
         }
-
         .btn:hover::before {
             left: 100%;
         }
-
         .btn-primary {
             background: var(--accent-blue);
             color: white;
             box-shadow: var(--shadow-md);
         }
-
         .btn-primary:hover {
             transform: translateY(-2px);
             box-shadow: var(--shadow-lg);
         }
-
         .btn-secondary {
             background: transparent;
             color: var(--accent-blue);
             border: 2px solid var(--accent-blue);
         }
-
         .btn-secondary:hover {
             background: var(--accent-blue);
             color: white;
             transform: translateY(-2px);
         }
-
         /* Animations */
         @keyframes fadeInUp {
             from {
@@ -203,12 +181,10 @@
                 transform: translateY(0);
             }
         }
-
         @keyframes float {
             0%, 100% { transform: translateY(0px) rotate(0deg); }
             50% { transform: translateY(-20px) rotate(180deg); }
         }
-
         .floating-elements {
             position: absolute;
             width: 100%;
@@ -216,14 +192,12 @@
             overflow: hidden;
             z-index: 1;
         }
-
         .floating-el {
             position: absolute;
             opacity: 0.1;
             animation: float 6s ease-in-out infinite;
             border-radius: 50%;
         }
-
         .el1 {
             width: 100px;
             height: 100px;
@@ -232,7 +206,6 @@
             left: 10%;
             animation-delay: 0s;
         }
-
         .el2 {
             width: 80px;
             height: 80px;
@@ -241,7 +214,6 @@
             right: 10%;
             animation-delay: 2s;
         }
-
         .el3 {
             width: 120px;
             height: 120px;
@@ -250,14 +222,12 @@
             left: 20%;
             animation-delay: 4s;
         }
-
         /* Sections */
         section {
             padding: 8rem 2rem;
             max-width: 1400px;
             margin: 0 auto;
         }
-
         .section-title {
             font-size: 3.5rem;
             text-align: center;
@@ -265,7 +235,6 @@
             margin-bottom: 1rem;
             color: var(--accent-blue);
         }
-
         .section-subtitle {
             text-align: center;
             color: var(--text-secondary);
@@ -275,7 +244,6 @@
             margin-left: auto;
             margin-right: auto;
         }
-
         /* About */
         .about-grid {
             display: grid;
@@ -283,7 +251,6 @@
             gap: 4rem;
             align-items: start;
         }
-
         .about-bio {
             background: var(--bg-card);
             padding: 3rem;
@@ -291,19 +258,16 @@
             border: 1px solid var(--border-color);
             box-shadow: var(--shadow-md);
         }
-
         .about-bio p {
             margin-bottom: 1.5rem;
             color: var(--text-secondary);
             font-size: 1.1rem;
         }
-
         .skills-list {
             display: flex;
             flex-direction: column;
             gap: 1.5rem;
         }
-
         .skill-item {
             background: var(--bg-card);
             padding: 2rem;
@@ -312,13 +276,11 @@
             transition: all 0.3s ease;
             box-shadow: var(--shadow-sm);
         }
-
         .skill-item:hover {
             transform: translateX(10px);
             border-left-color: var(--accent-green);
             box-shadow: var(--shadow-md);
         }
-
         .skill-item h3 {
             color: var(--text-primary);
             margin-bottom: 0.5rem;
@@ -327,18 +289,15 @@
             align-items: center;
             gap: 0.5rem;
         }
-
         .skill-item p {
             color: var(--text-secondary);
         }
-
         /* Projects */
         .projects-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
             gap: 2rem;
         }
-
         .project-card {
             background: var(--bg-card);
             border-radius: 20px;
@@ -349,7 +308,6 @@
             overflow: hidden;
             height: 100%;
         }
-
         .project-card::before {
             content: '';
             position: absolute;
@@ -361,16 +319,13 @@
             transform: scaleX(0);
             transition: transform 0.3s ease;
         }
-
         .project-card:hover {
             transform: translateY(-10px);
             box-shadow: var(--shadow-lg);
         }
-
         .project-card:hover::before {
             transform: scaleX(1);
         }
-
         .project-card h3 {
             color: var(--text-primary);
             margin-bottom: 1rem;
@@ -380,18 +335,15 @@
             align-items: center;
             gap: 0.5rem;
         }
-
         .project-card p {
             color: var(--text-secondary);
             margin-bottom: 1.5rem;
         }
-
         .project-tags {
             display: flex;
             flex-wrap: wrap;
             gap: 0.5rem;
         }
-
         .tag {
             background: #eff6ff;
             color: var(--accent-blue);
@@ -401,7 +353,6 @@
             font-weight: 500;
             border: 1px solid #dbeafe;
         }
-
         /* Contact */
         .contact-content {
             background: var(--bg-card);
@@ -413,19 +364,17 @@
             max-width: 800px;
             margin: 0 auto;
         }
-
         .contact-content p {
             font-size: 1.2rem;
             color: var(--text-secondary);
             margin-bottom: 3rem;
         }
-
+        . CMS Documentation
         .contact-links {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 1.5rem;
         }
-
         .contact-link {
             display: flex;
             align-items: center;
@@ -441,21 +390,142 @@
             position: relative;
             overflow: hidden;
         }
-
         .contact-link i {
             font-size: 1.2rem;
         }
-
+        .contact-link:nth-child(1) { background: #1f2937; }
+        .contact-link:nth-child(2) { background: #0e7490; }
+        .contact-link:nth-child(3) {://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"> bg-card);
+            padding: 2rem;
+            border-radius: 16px;
+            border-left: 4px solid var(--accent-blue);
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-sm);
+        }
+        .skill-item:hover {
+            transform: translateX(10px);
+            border-left-color: var(--accent-green);
+            box-shadow: var(--shadow-md);
+        }
+        .skill-item h3 {
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .skill-item p {
+            color: var(--text-secondary);
+        }
+        /* Projects */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+        }
+        .project-card {
+            background: var(--bg-card);
+            border-radius: 20px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            border: 1px solid var(--border-color);
+            position: relative;
+            overflow: hidden;
+            height: 100%;
+        }
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--accent-blue);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+        .project-card:hover::before {
+            transform: scaleX(1);
+        }
+        .project-card h3 {
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .project-card p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        .tag {
+            background: #eff6ff;
+            color: var(--accent-blue);
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            border: 1px solid #dbeafe;
+        }
+        /* Contact */
+        .contact-content {
+            background: var(--bg-card);
+            padding: 4rem;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border-color);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .contact-content p {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-bottom: 3rem;
+        }
+        .contact-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+        .contact-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            color: white;
+            text-decoration: none;
+            padding: 1.5rem;
+            border-radius: 16px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            font-size: 1rem;
+            position: relative;
+            overflow: hidden;
+        }
+        .contact-link i {
+            font-size: 1.2rem;
+        }
         .contact-link:nth-child(1) { background: #1f2937; }
         .contact-link:nth-child(2) { background: #0e7490; }
         .contact-link:nth-child(3) { background: #dc2626; }
         .contact-link:nth-child(4) { background: #ea580c; }
-
         .contact-link:hover {
             transform: translateY(-5px) scale(1.05);
             box-shadow: var(--shadow-lg);
         }
-
         /* Footer */
         footer {
             text-align: center;
@@ -464,7 +534,6 @@
             background: var(--bg-secondary);
             border-top: 1px solid var(--border-color);
         }
-
         /* Responsive */
         @media (max-width: 768px) {
             .hero h1 { font-size: 3rem; }
@@ -488,7 +557,6 @@
             <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
         </ul>
     </nav>
-
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="floating-elements">
@@ -508,7 +576,6 @@
             </div>
         </div>
     </section>
-
     <!-- About Section -->
     <section id="about">
         <h2 class="section-title">About Me</h2>
@@ -535,12 +602,11 @@
                 </div>
                 <div class="skill-item">
                     <h3><i class="fas fa-bullseye"></i> Specializations</h3>
-                    <p>Machine Learning, Deep Learning, Geometric Deep Learning, Computer vision,3D Computer Vision, Generative Modeling</p>
+                    <p>Machine Learning, Deep Learning, Geometric Deep Learning, Computer Vision, 3D Computer Vision, Generative Modeling, MLOps</p>
                 </div>
             </div>
         </div>
     </section>
-
     <!-- Projects Section -->
     <section id="projects">
         <h2 class="section-title">Featured Projects</h2>
@@ -548,12 +614,16 @@
         <div class="projects-grid">
             <div class="project-card">
                 <h3><i class="fas fa-video"></i> Real-Time Object Detection with DeepStream</h3>
-                <p>Integrated multiple RTSP streams for real-time object detection and analytics. Optimized NVIDIA DeepStream pipelines for efficient multi-camera inference.</p>
+                <p>Integrated multiple RTSP streams for real-time object detection and analytics. Optimized NVIDIA DeepStream pipelines with distributed training via PyTorch DDP across multiple GPUs, reducing training time by 35%. Utilized MLflow and Weights & Biases for experiment tracking, hyperparameter tuning, and performance visualization, ensuring scalable and reproducible MLOps workflows.</p>
                 <div class="project-tags">
                     <span class="tag">DeepStream</span>
                     <span class="tag">YOLO</span>
                     <span class="tag">RTSP</span>
                     <span class="tag">Edge AI</span>
+                    <span class="tag">MLflow</span>
+                    <span class="tag">Weights & Biases</span>
+                    <span class="tag">Distributed Training</span>
+                    <span class="tag">MLOps</span>
                 </div>
             </div>
             <div class="project-card">
@@ -576,20 +646,28 @@
             </div>
             <div class="project-card">
                 <h3><i class="fas fa-palette"></i> Synthetic Data Generation Pipeline</h3>
-                <p>Created synthetic datasets for license plate images and tabular time-series data. Improved model robustness through domain randomization.</p>
+                <p>Created synthetic datasets for license plate images and tabular time-series data using GANs. Enhanced model robustness through domain randomization, with distributed training via PyTorch DDP for faster generation. Leveraged MLflow and Weights & Biases for tracking experiments and optimizing hyperparameters, improving dataset quality by 30%.</p>
                 <div class="project-tags">
                     <span class="tag">Synthetic Data</span>
                     <span class="tag">GANs</span>
                     <span class="tag">Augmentation</span>
+                    <span class="tag">MLflow</span>
+                    <span class="tag">Weights & Biases</span>
+                    <span class="tag">Distributed Training</span>
+                    <span class="tag">MLOps</span>
                 </div>
             </div>
             <div class="project-card">
                 <h3><i class="fas fa-plug"></i> Hybrid Generative Modeling (GAN + EBM)</h3>
-                <p>Experimented with combining Generative Adversarial Networks and Energy-Based Models for controlled image generation.</p>
+                <p>Developed a hybrid model combining GANs and EBMs for controlled image generation. Implemented distributed training with PyTorch DDP to scale across GPUs, reducing training time by 40%. Used MLflow and Weights & Biases for experiment tracking and visualization, ensuring robust and reproducible training pipelines.</p>
                 <div class="project-tags">
                     <span class="tag">GANs</span>
                     <span class="tag">EBM</span>
                     <span class="tag">Research</span>
+                    <span class="tag">MLflow</span>
+                    <span class="tag">Weights & Biases</span>
+                    <span class="tag">Distributed Training</span>
+                    <span class="tag">MLOps</span>
                 </div>
             </div>
             <div class="project-card">
@@ -603,7 +681,7 @@
             </div>
             <div class="project-card">
                 <h3><i class="fas fa-chart-line"></i> Predictive Modeling for Operations</h3>
-                <p>Developed statistical and deep learning models to predict off-block time probability(POBT) and vehicle inspection end times.</p>
+                <p>Developed statistical and deep learning models to predict off-block time probability (POBT) and vehicle inspection end times.</p>
                 <div class="project-tags">
                     <span class="tag">Time Series</span>
                     <span class="tag">Hybrid Models</span>
@@ -619,9 +697,22 @@
                     <span class="tag">Industrial AI</span>
                 </div>
             </div>
+            <div class="project-card">
+                <h3><i class="fas fa-images"></i> Mixture of Recussions with GAN for Synthetic Image Generation</h3>
+                <p>Developed a novel generative model combining Mixture of Recussions with GANs to create high-quality synthetic images with enhanced diversity and realism. Utilized MLflow and Weights & Biases for comprehensive experiment tracking, hyperparameter optimization, and visualization of training metrics. Implemented distributed training via PyTorch DDP for efficient scaling across GPUs on both detection models (e.g., YOLO-based pipelines) and hybrid generative models, reducing training time by 40% while ensuring reproducibility in MLOps workflows.</p>
+                <div class="project-tags">
+                    <span class="tag">GANs</span>
+                    <span class="tag">Mixture of Recussions</span>
+                    <span class="tag">Synthetic Images</span>
+                    <span class="tag">Generative AI</span>
+                    <span class="tag">MLflow</span>
+                    <span class="tag">Weights & Biases</span>
+                    <span class="tag">Distributed Training</span>
+                    <span class="tag">MLOps</span>
+                </div>
+            </div>
         </div>
     </section>
-
     <!-- Contact Section -->
     <section id="contact">
         <h2 class="section-title">Let's Connect</h2>
@@ -648,12 +739,10 @@
             </div>
         </div>
     </section>
-
     <!-- Footer -->
     <footer>
         <p>&copy; 2025 Mallemoina Gurudarpan | Built with passion for Machine Learning & Computer Vision <i class="fas fa-rocket"></i></p>
     </footer>
-
     <script>
         // Smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -665,7 +754,6 @@
                 }
             });
         });
-
         // Active nav
         window.addEventListener('scroll', () => {
             const sections = document.querySelectorAll('section');
@@ -684,7 +772,6 @@
                 }
             });
         });
-
         // Intersection Observer for animations
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -694,7 +781,6 @@
                 }
             });
         }, { threshold: 0.1 });
-
         document.querySelectorAll('.project-card, .skill-item').forEach(el => {
             el.style.opacity = '0';
             el.style.transform = 'translateY(30px)';
